@@ -265,7 +265,8 @@
             document.getElementById('progressBar').style.width = '30%';
 
             try {
-                const response = await fetch(url);
+                const corsUrl = `https://cors-anywhere.herokuapp.com/${url}`;
+                const response = await fetch(corsUrl);
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 document.getElementById('progressBar').style.width = '60%';
@@ -336,7 +337,8 @@
                 document.getElementById('progressBar').style.width = progress + '%';
 
                 try {
-                    const response = await fetch(url);
+                    const corsUrl = `https://cors-anywhere.herokuapp.com/${url}`;
+                    const response = await fetch(corsUrl);
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
                     
                     const html = await response.text();
